@@ -1,0 +1,6 @@
+version: 2
+updates:
+  - package-ecosystem: "pip"  # Python 패키지용
+    directory: "/"  # 루트 디렉토리에 있는 requirements.txt 파일
+    schedule:
+      interval: "weekly"  # 주간 업데이트 확인

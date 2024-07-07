@@ -116,12 +116,11 @@ options = Options(
 )
 
 
-
 # Define the general information of your package
 kwargs = Kwargs(
-    name_space="crimson-templator",
-    module_name="requirements",
-    description="requirements file templates.",
+    name_space="crimson",
+    module_name="git-loader",
+    description="Simplify downloading certain files or folders from git repositories.",
 )
 
 kwargs_skeleton = kwargs
