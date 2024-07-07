@@ -9,7 +9,6 @@ from crimson.git_loader.loader import (
     download_folder,
     _generate_path_filter,
 )
-from crimson.file_loader.utils import filter_paths
 
 
 @pytest.fixture
