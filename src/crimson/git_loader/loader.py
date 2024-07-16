@@ -78,7 +78,6 @@ def download_folder(
                 )
                 download_file(owner, repo, file_path, save_as, token)
 
-
 def _generate_path_filter(
     tree_contents: List[Dict[str, Any]], includes: List[str], excludes: List[str]
 ) -> List[str]:
