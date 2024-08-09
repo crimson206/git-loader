@@ -1,1 +1,4 @@
 crimson-file-loader
+networkx
+matplotlib
+toml
