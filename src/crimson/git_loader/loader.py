@@ -2,6 +2,7 @@ import requests
 import os
 from typing import Optional, List, Dict, Any
 from crimson.file_loader.utils import filter_paths
+from .reader import get_user_repositories
 
 
 def create_headers(token: Optional[str] = None) -> Dict[str, str]:
@@ -77,6 +78,25 @@ def download_folder(
                     local_dir, os.path.relpath(file_path, folder_path)
                 )
                 download_file(owner, repo, file_path, save_as, token)
+
+
+def download_all_shared_path(
+    username: str, shared_path: str, token: Optional[str] = None
+) -> List[str]:
+    repositories = get_user_repositories(username, token)
+    downloaded_repos = []
+
+    for repo in repositories:
+        save_as = "/".join(["tomls", repo, shared_path])
+
+        try:
+            if download_file(username, repo, shared_path, save_as):
+                downloaded_repos.append(repo)
+        except Exception as e:
+            print("Repository,", repo, ", caused an error:", e)
+
+    return downloaded_repos
+
 
 def _generate_path_filter(
     tree_contents: List[Dict[str, Any]], includes: List[str], excludes: List[str]
